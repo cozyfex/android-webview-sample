@@ -1,7 +1,6 @@
 package com.cozyfex.dev.webview
 
 import android.content.Context
-import android.content.Intent
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import android.widget.Toast
@@ -13,5 +12,8 @@ class WebAppInterface(
     @JavascriptInterface
     fun showToast(toast: String) {
         Toast.makeText(context, toast, Toast.LENGTH_SHORT).show()
+        webView.post(Runnable {
+            webView.evaluateJavascript("document.querySelector('input').value = 'Android'", null)
+        })
     }
 }

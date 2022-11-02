@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity() {
         webView!!.webChromeClient = WebChromeClient()
         webView!!.settings.javaScriptEnabled = true
         webView!!.settings.javaScriptCanOpenWindowsAutomatically = true
-        webView!!.addJavascriptInterface(WebAppInterface(this, webView!!), "AppJS")
         setContentView(webView)
         webView!!.loadUrl(BuildConfig.WEBAPP_URL)
+        webView!!.addJavascriptInterface(WebAppInterface(this, webView!!), "AppJS")
     }
 }
